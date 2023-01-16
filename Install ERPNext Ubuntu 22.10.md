@@ -43,7 +43,7 @@ Step 2: Install Required Packages
 * Software Properties Common
 * MariaDB
 * Redis Server
-* And other Mainer packages Like(xvfb, libfontconfig, wkhtmltopdf, libmysqlclient-dev)
+* And other Mainer packages Like(libfontconfig, wkhtmltopdf, libmysqlclient-dev)
 ```
 sudo apt install git python3-dev python3.10-dev python3-setuptools python3-pip python3-distutils python3.10-venv software-properties-common mariadb-server mariadb-client redis-server libfontconfig wkhtmltopdf libmysqlclient-dev -y
 ```
@@ -170,11 +170,15 @@ I Got
 ![image](https://user-images.githubusercontent.com/99401472/212289869-48249717-6643-48f6-a6df-9e4c6f33d9d2.png)
 
 In My Case I Create frappe folder in home/user directory
+![image](https://user-images.githubusercontent.com/99401472/212290430-5fc69197-e03c-4bc2-a936-8add79beb94f.png)
 
 Switch directories into the Frappe directory using
-![image](https://user-images.githubusercontent.com/99401472/212290430-5fc69197-e03c-4bc2-a936-8add79beb94f.png)
 ```
-cd frappe
+cd /home/[user]/[frappe folder]
+```
+In My Case
+```
+cd /home/erp/frappe
 ```
 
 **Create a First New Site**
@@ -203,6 +207,10 @@ bench get-app --branch version-14 https://github.com/resilient-tech/india-compli
 ```
 **Install all the apps on our site**
 ```
+bench --site <site-name> install-app <app-name.
+```
+
+In My Case
 ```
 bench --site demo.erp.com install-app payments
 bench --site demo.erp.com install-app erpnext
