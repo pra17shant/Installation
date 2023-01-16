@@ -145,12 +145,22 @@ sudo pip3 install frappe-bench
 We Expect Only WARNING Message at the bottom of line like billow image
 ![image](https://user-images.githubusercontent.com/99401472/212287583-4190be67-f51d-442f-b05a-02aa99ded6f5.png)
 
-To Check Bench Version First using
+To Check Bench Version First using properlly Installed or not
 ```
 bench --version
 ```
 I Got Bench Vesrion
 ![image](https://user-images.githubusercontent.com/99401472/212288605-70646a4d-3a51-438f-b292-5a631e6f7088.png)
+
+
+**In My Case I Got my user Apply Read permission for other group, if you have then Skip it otherwise go ahed next command.**
+```
+chmod -R o+rx /home/<User-Name>/[Your Frappe]
+```
+In My Case
+```
+chmod -R o+rx /home/erp/frappe
+```
 
 **Now Initialize Frappe Bench and its Packege Using**
 ```
@@ -159,17 +169,14 @@ bench init --frappe-branch version-14 frappe
 I Got 
 ![image](https://user-images.githubusercontent.com/99401472/212289869-48249717-6643-48f6-a6df-9e4c6f33d9d2.png)
 
-In My Case I Create frappe folder in home directory
+In My Case I Create frappe folder in home/user directory
 
 Switch directories into the Frappe directory using
 ![image](https://user-images.githubusercontent.com/99401472/212290430-5fc69197-e03c-4bc2-a936-8add79beb94f.png)
 ```
 cd frappe
 ```
-In My Case I Got my user get Exicute permission if you not then go ahed next command otherwise skip it
-```
-chmod -R o+rx /home/[frappe]
-```
+
 **Create a First New Site**
 ```
 bench new-site <site-name> --db-name <Database-Name>
@@ -196,39 +203,8 @@ bench get-app --branch version-14 https://github.com/resilient-tech/india-compli
 ```
 **Install all the apps on our site**
 ```
-
-```
 ```
 bench --site demo.erp.com install-app payments
 bench --site demo.erp.com install-app erpnext
 bench --site demo.erp.com install-app india_compliance
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
