@@ -1,16 +1,14 @@
 ---
-Install ERPNext ERP on Ubuntu 22.04
+Install ERPNext ERP on Ubuntu 22.10
 ---
+To Check OS Version
 ```
 erp@ERP-Next:~$ lsb_release -a
-
-Distributor ID: Ubuntu
-Description:    Ubuntu 22.10
-Release:        22.10
-Codename:       kinetic
 ```
+![image](https://user-images.githubusercontent.com/99401472/212861043-021582d2-c2dc-49dd-bbd1-eef5e327d985.png)
+
 ---
-Install ERPNext on Ubuntu 22.04
+Install ERPNext on Ubuntu 22.10
 ----
 ```
 sudo apt update
