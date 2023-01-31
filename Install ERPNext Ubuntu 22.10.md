@@ -214,3 +214,63 @@ bench --site demo.erp.com install-app payments
 bench --site demo.erp.com install-app erpnext
 bench --site demo.erp.com install-app india_compliance
 ```
+---
+**Start Banch Server Process**
+---
+If you have only one site and "maintenance_mode": 0, then use following command for default site for perticulaer bench
+```
+bench use <Your Site Name>
+```
+In My Case
+```
+bench use demo.erp.com
+```
+and then Finally our site up check browser its running or not
+```
+bench start
+```
+---
+**Steps For Production Server**
+---
+Please Note no need to start bench manually if you done this process it means your instance will start automatically even in the event you restart the server.
+When this completes doing the settings, your instance is now on production mode and can be accessed using your IP, without needing to use the port
+
+**Enable Scheduler**
+```
+bench --site [site-name] enable-scheduler
+```
+In My Case
+```
+bench --site demo.erp.com enable-scheduler
+```
+**Disable maintenance mode**
+```
+bench --site [site-name] set-maintenance-mode off
+```
+In My Case
+```
+bench --site demo.erp.com set-maintenance-mode off
+```
+**Setup production config**
+```
+sudo bench setup production [frappe-user (linux user)]
+```
+In My Case
+```
+sudo bench setup production erp
+```
+**Setup NGINX to apply the changes**
+```
+bench setup nginx
+```
+**Restart Supervisor and Launch Production Mode**
+If you are prompted to save the new/existing config file, respond with a Y.
+```
+sudo supervisorctl restart all
+sudo bench setup production [frappe-user]
+```
+In My Case
+```
+sudo supervisorctl restart all
+sudo bench setup production erp
+```
