@@ -286,7 +286,7 @@ sudo supervisorctl restart all
 sudo bench setup production erp
 ```
 ---
-Steps For Multiple Site lounch in single bench (Devlopment server purpose Only)
+Steps For Multiple Site run in single bench (Devlopment server purpose Only)
 ---
 
 Previous I have only one site name as "demo.erp.com", but I need to up in second site also in same bench and same port then must follow the steps else ignore.
