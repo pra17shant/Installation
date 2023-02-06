@@ -294,7 +294,7 @@ Multitenant On for common_site_config.json file presented in site folder
 ```
 bench config dns_multitenant on
 ```
-or You can directly copy the content in .json file present in site folder if you enable developer mode on then
+or You can directly copy the content in **common_site_config.json** file present in site folder if you enable developer mode on then
 ```
 "developer_mode": 1,
 "dns_multitenant": true,
@@ -302,11 +302,19 @@ or You can directly copy the content in .json file present in site folder if you
 ```
 *After that, create a 2nd site for same bench. (Follow Step-6 only) and finally run this command.
 ```
+bench --site <site-name> add-to-hosts
+```
+In My Case
+```
+bench --site demo.erp.com add-to-hosts
+bench --site demo1.erp.com add-to-hosts
+```
+**Note:** If your system running in local network with dhcp server and have local IP then replace 127.0.0.0 to your IP in /etc/hosts file.
+to check linux IP using this command { ip -c a }
+```
 bench setup nginx
 ```
 ```
 sudo service nginx reload
 ```
-
-To access the sites you will then use http://demo.erp.com:8000 , http://demo1.erp.com:8000  and so forth
-
+To access the sites in your browser useing like **1st site:** http://demo.erp.com:8000  **2nd site:** http://demo1.erp.com:8000  and so on so forth.
