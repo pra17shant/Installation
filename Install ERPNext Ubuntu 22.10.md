@@ -318,3 +318,49 @@ bench setup nginx
 sudo service nginx reload
 ```
 To access the sites in your browser useing like **1st site:** http://demo.erp.com:8000  **2nd site:** http://demo1.erp.com:8000  and so on so forth.
+
+---
+Steps For Installing SSL Certificate
+---
+Must Be...
+1. Allow TCP 403 port.
+2. Install snapd application.
+3. Install certbot.
+4. DNS Multitenant Setup process.
+5. Valid Domain name preserve.
+6. Need root permissions on your server.
+7. Trusted Certificate Authority or a Self-Signed Certificate.
+
+**If You Have all of this,then Now Lets Start**
+
+Firewall Transmission Control Protocol(TCP)-403,HTTP Secure Port to be enable.
+```
+sudo ufw allow 443/tcp
+```
+Install snapd Application and update
+```
+sudo apt install snapd;
+sudo snap install core;
+sudo snap refresh core
+```
+If You already install SSL Certificate using certbot then remove first.
+```
+sudo apt-get remove certbot
+```
+Install certbot
+```
+sudo snap install --classic certbot;
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+```
+Automatic SSL Installation NGINX
+```
+sudo certbot --nginx
+```
+If You Want to Install Manually than
+```
+sudo certbot certonly --nginx
+```
+Basically certbot auto renew certificate if not then this command to help you out
+```
+sudo certbot renew --dry-run
+```
