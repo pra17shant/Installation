@@ -148,8 +148,9 @@ systemctl restart nginx
 systemctl status nginx
 ```
 Everything is fine then finally check in browser using server ip or localhost
-http://<ip address>/phpmyadmin
- or
+
+http://ip-address/phpmyadmin/
+or
 http://localhost/phpmyadmin/
  
 Step-4: Install CURL, Node, NPM and Yarn
