@@ -87,6 +87,71 @@ default-character-set = utf8mb4
 sudo service mysql restart
 ```
 ---
+**IF You you want to view database in browser then install phpmyadmin with nginx**
+NOTE: Not recomended to erpnext normal user to phpmyadmin software, simpaly skip this process.
+```
+sudo apt update
+sudo apt install software-properties-common
+
+sudo add-apt-repository ppa:ondrej/php
+sudo apt update
+
+
+sudo apt install php8.1-fpm php8.1-common php8.1-dom php8.1-intl php8.1-mysql php8.1-xml php8.1-xmlrpc php8.1-curl php8.1-gd php8.1-imagick php8.1-cli php8.1-dev php8.1-imap php8.1-mbstring php8.1-soap php8.1-zip php8.1-bcmath -y
+
+systemctl status php8.1-fpm
+
+weget -c https://files.phpmyadmin.net/phpMyAdmin/5.2.1/phpMyAdmin-5.2.1-english.tar.gz
+
+tar xzvf phpMyAdmin-5.2.1-english.tar.gz
+
+sudo mv phpMyAdmin-5.2.1-english.tar.gz /usr/share/phpmyadmin
+ln -s /usr/share/phpmyadmin /var/www/html
+```
+Edit below file.
+```
+nano /etc/nginx/sites-available/default
+```
+Like as
+```
+        root /var/www/html;
+
+        # Add index.php to the list if you are using PHP
+        index index.php index.html index.htm index.nginx-debian.html;
+
+        server_name _;
+
+        location / {
+                # First attempt to serve request as file, then
+                # as directory, then fall back to displaying a 404.
+                try_files $uri $uri/ =404;
+        }
+
+        location ~ \.php$ {
+
+                try_files $fastcgi_script_name =404;
+                include fastcgi_params;
+                fastcgi_pass unix:/run/php/php8.1-fpm.sock;
+                fastcgi_param DOCUMENT_ROOT $realpath_root;
+                fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+        }
+```
+![phpmyadmin](https://user-images.githubusercontent.com/99401472/231714490-54ed6cdf-b9d6-42a8-82a3-49deb93ecf1f.png)
+
+Test nginx server error using below command.
+```
+nginx -t
+```
+If everything is ok then retart services.
+```
+systemctl restart nginx
+systemctl status nginx
+```
+Everything is fine then finally check in browser using server ip or localhost
+http://<ip address>/phpmyadmin
+ or
+http://localhost/phpmyadmin/
+ 
 Step-4: Install CURL, Node, NPM and Yarn
 ---
 **Install Curl & NVM**
