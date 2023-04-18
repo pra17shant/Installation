@@ -101,7 +101,7 @@ sudo apt install php8.1-fpm php8.1-common php8.1-dom php8.1-intl php8.1-mysql ph
 
 systemctl status php8.1-fpm
 
-weget -c https://files.phpmyadmin.net/phpMyAdmin/5.2.1/phpMyAdmin-5.2.1-english.tar.gz
+wget -c https://files.phpmyadmin.net/phpMyAdmin/5.2.1/phpMyAdmin-5.2.1-english.tar.gz
 
 tar xzvf phpMyAdmin-5.2.1-english.tar.gz
 
