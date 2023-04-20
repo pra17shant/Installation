@@ -105,7 +105,7 @@ wget -c https://files.phpmyadmin.net/phpMyAdmin/5.2.1/phpMyAdmin-5.2.1-english.t
 
 tar xzvf phpMyAdmin-5.2.1-english.tar.gz
 
-sudo mv phpMyAdmin-5.2.1-english.tar.gz /usr/share/phpmyadmin
+sudo mv phpMyAdmin-5.2.1-english /usr/share/phpmyadmin
 ln -s /usr/share/phpmyadmin /var/www/html
 ```
 Edit below file.
