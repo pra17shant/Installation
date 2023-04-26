@@ -395,7 +395,9 @@ Basically certbot auto renew certificate if not then this command to help you ou
 ```
 sudo certbot renew --dry-run
 ```
-
+---
+Install PHP-MY-ADMIN For Database Access(Nginx)
+---
 **IF You you want to view database in browser then install phpmyadmin with nginx**
 NOTE: Not recomended to erpnext normal user to phpmyadmin software, simpaly skip this process.
 ```
@@ -417,6 +419,10 @@ tar xzvf phpMyAdmin-5.2.1-english.tar.gz
 sudo mv phpMyAdmin-5.2.1-english /usr/share/phpmyadmin
 ln -s /usr/share/phpmyadmin /var/www/html
 ```
+--
+Type-1 File Setting for Local System (Nginx)
+--
+
 Edit below file.
 ```
 nano /etc/nginx/sites-available/default
@@ -461,3 +467,43 @@ Everything is fine then finally check in browser using server ip or localhost
 http://ip-address/phpmyadmin/
 or
 http://localhost/phpmyadmin/
+
+--
+Type-2 File Setting for Cloud System (Nginx)
+--
+We will configure it so that we can access phpMyAdmin via a sub-domain. Paste the following text into the file. 
+```
+sudo nano /etc/nginx/conf.d/phpmyadmin.conf
+```
+Replace pma.example.com with your actual sub-domain as well if you extract phpmyadmin file some ware location then also correct that path in my case path is (root /var/www/html/phpmyadmin/;) and don’t forget to create DNS A record for it.
+```
+server {
+  listen 80;
+  listen [::]:80;
+  server_name pma.example.com;
+  root /var/www/html/phpmyadmin/;
+  index index.php index.html index.htm index.nginx-debian.html;
+
+  access_log /var/log/nginx/phpmyadmin_access.log;
+  error_log /var/log/nginx/phpmyadmin_error.log;
+
+  location / {
+    try_files $uri $uri/ /index.php;
+  }
+
+  location ~ ^/(doc|sql|setup)/ {
+    deny all;
+  }
+
+  location ~ \.php$ {
+    fastcgi_pass unix:/run/php/php8.1-fpm.sock;
+    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    include fastcgi_params;
+    include snippets/fastcgi-php.conf;
+  }
+
+  location ~ /\.ht {
+    deny all;
+  }
+}
+```
