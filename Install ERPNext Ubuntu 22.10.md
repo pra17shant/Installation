@@ -419,15 +419,14 @@ tar xzvf phpMyAdmin-5.2.1-english.tar.gz
 sudo mv phpMyAdmin-5.2.1-english /usr/share/phpmyadmin
 ln -s /usr/share/phpmyadmin /var/www/html
 ```
---
+
 Type-1 File Setting for Local System (Nginx)
 --
 
-Edit below file.
 ```
 nano /etc/nginx/sites-available/default
 ```
-Like as
+Like as Edit below default file add the **index.php** between index & index.html.
 ```
         root /var/www/html;
 
@@ -468,10 +467,10 @@ http://ip-address/phpmyadmin/
 or
 http://localhost/phpmyadmin/
 
+
+Type-2 File Setting for Cloud Access (Nginx)
 --
-Type-2 File Setting for Cloud System (Nginx)
---
-We will configure it so that we can access phpMyAdmin via a sub-domain. Paste the following text into the file. 
+We will configure it so that we can access phpMyAdmin via a sub-domain. Create file **phpmyadmin.conf** & Paste the following text into the file. 
 ```
 sudo nano /etc/nginx/conf.d/phpmyadmin.conf
 ```
