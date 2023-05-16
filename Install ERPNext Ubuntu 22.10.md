@@ -45,6 +45,9 @@ Step 2: Install Required Packages
 ```
 sudo apt install git python3-dev python3.10-dev python3-setuptools python3-pip python3-distutils python3.10-venv software-properties-common mariadb-server mariadb-client redis-server libfontconfig wkhtmltopdf libmysqlclient-dev -y
 ```
+```
+python3 -m pip install --upgrade pip
+```
 ---
 Step 3: Configure MYSQL Server
 ---
@@ -169,7 +172,7 @@ chmod -R o+rx /home/<User-Name>/[Your Frappe]
 ```
 In My Case
 ```
-chmod -R o+rx /home/erp/frappe
+chmod o+x /home/erp/frappe
 ```
 
 **Switch directories into the Frappe directory using**
