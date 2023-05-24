@@ -404,7 +404,8 @@ Install PHP-MY-ADMIN For Database Access(Nginx)
 **IF You you want to view database in browser then install phpmyadmin with nginx**
 
 NOTE: Not recomended to erpnext normal user to phpmyadmin software, simpaly skip this process.
-To Install Required Application for it
+
+To Install needfull Application for phpmyadmin
 ```
 sudo apt update;
 sudo apt install software-properties-common;
@@ -425,7 +426,11 @@ ln -s /usr/share/phpmyadmin /var/www/html
 ```
 You can Use any type to configure with nginx.
 --
-**Type-1 File Setting for Local System (Nginx)**
+
+Type-1
+--
+
+**Hosted in a local & Access it locally(Nginx)**
 
 ```
 nano /etc/nginx/sites-available/default
@@ -456,8 +461,11 @@ Like as Edit below default file add the **index.php** between index & index.html
 ```
 ![phpmyadmin](https://user-images.githubusercontent.com/99401472/231714490-54ed6cdf-b9d6-42a8-82a3-49deb93ecf1f.png)
 
-**Type-2 File Setting for Cloud Access (Nginx)**
+Type-2 
 --
+
+**Hosted in a Cloud & Access it globally(Nginx)**
+
 We will configure it so that we can access phpMyAdmin via a sub-domain. Create file **phpmyadmin.conf** & Paste the following text into the file. 
 ```
 sudo nano /etc/nginx/conf.d/phpmyadmin.conf
