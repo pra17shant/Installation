@@ -402,18 +402,19 @@ sudo certbot renew --dry-run
 Install PHP-MY-ADMIN For Database Access(Nginx)
 ---
 **IF You you want to view database in browser then install phpmyadmin with nginx**
+
 NOTE: Not recomended to erpnext normal user to phpmyadmin software, simpaly skip this process.
+To Install Required Application for it
 ```
-sudo apt update
-sudo apt install software-properties-common
+sudo apt update;
+sudo apt install software-properties-common;
 
-sudo add-apt-repository ppa:ondrej/php
-sudo apt update
+sudo add-apt-repository ppa:ondrej/php;
+sudo apt update;
 
+sudo apt install php8.1-fpm php8.1-common php8.1-dom php8.1-intl php8.1-mysql php8.1-xml php8.1-xmlrpc php8.1-curl php8.1-gd php8.1-imagick php8.1-cli php8.1-dev php8.1-imap php8.1-mbstring php8.1-soap php8.1-zip php8.1-bcmath -y;
 
-sudo apt install php8.1-fpm php8.1-common php8.1-dom php8.1-intl php8.1-mysql php8.1-xml php8.1-xmlrpc php8.1-curl php8.1-gd php8.1-imagick php8.1-cli php8.1-dev php8.1-imap php8.1-mbstring php8.1-soap php8.1-zip php8.1-bcmath -y
-
-systemctl status php8.1-fpm
+systemctl status php8.1-fpm;
 
 wget -c https://files.phpmyadmin.net/phpMyAdmin/5.2.1/phpMyAdmin-5.2.1-english.tar.gz
 
@@ -422,9 +423,9 @@ tar xzvf phpMyAdmin-5.2.1-english.tar.gz
 sudo mv phpMyAdmin-5.2.1-english /usr/share/phpmyadmin
 ln -s /usr/share/phpmyadmin /var/www/html
 ```
-
-Type-1 File Setting for Local System (Nginx)
+You can Use any type to configure with nginx.
 --
+**Type-1 File Setting for Local System (Nginx)**
 
 ```
 nano /etc/nginx/sites-available/default
@@ -455,23 +456,7 @@ Like as Edit below default file add the **index.php** between index & index.html
 ```
 ![phpmyadmin](https://user-images.githubusercontent.com/99401472/231714490-54ed6cdf-b9d6-42a8-82a3-49deb93ecf1f.png)
 
-Test nginx server error using below command.
-```
-nginx -t
-```
-If everything is ok then retart services.
-```
-systemctl restart nginx
-systemctl status nginx
-```
-Everything is fine then finally check in browser using server ip or localhost
-
-http://ip-address/phpmyadmin/
-or
-http://localhost/phpmyadmin/
-
-
-Type-2 File Setting for Cloud Access (Nginx)
+**Type-2 File Setting for Cloud Access (Nginx)**
 --
 We will configure it so that we can access phpMyAdmin via a sub-domain. Create file **phpmyadmin.conf** & Paste the following text into the file. 
 ```
@@ -509,3 +494,19 @@ server {
   }
 }
 ```
+
+**Test nginx server error using below command.**
+```
+nginx -t
+```
+**If everything is ok then retart services.**
+```
+systemctl restart nginx
+systemctl status nginx
+```
+Everything is fine then finally check in browser using server ip or localhost
+--
+
+http://ip-address/phpmyadmin/
+or
+http://localhost/phpmyadmin/
