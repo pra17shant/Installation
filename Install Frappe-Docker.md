@@ -30,6 +30,8 @@ sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://downloa
 
 ```
 sudo apt install docker-ce docker-ce-cli [containerd.io](http://containerd.io/) docker-compose-plugin
+or
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 ### Ensure OpenSSL is installed
 ```
