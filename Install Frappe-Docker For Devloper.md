@@ -1,4 +1,46 @@
 # Install Frappe-Docker For Devloper
+
+### Installation of Docker & Docker Compose
+
+Uninstall Old version of docker or docker-engine. If you have it installed, first uninstall it.
+
+```
+sudo apt update
+sudo apt remove docker docker-engine [docker.io](http://docker.io/) 2>/dev/null
+```
+
+### Install packages to allow apt to use a repository over HTTPS
+
+```
+sudo apt -y install lsb-release gnupg apt-transport-https ca-certificates curl software-properties-common
+```
+
+### Add Docker’s official GPG key
+
+```
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/docker.gpg
+```
+
+### Add stable repository
+```
+sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+```
+### Install docker CE
+
+```
+sudo apt install docker-ce docker-ce-cli [containerd.io](http://containerd.io/) docker-compose-plugin
+or
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+### Ensure OpenSSL is installed
+```
+sudo apt install openssl
+```
+### Start and enable the service:** 
+```
+sudo systemctl start docker && sudo systemctl enable docker
+```
+____
 * Clone Frappe Docker Public Repo on your System
 ```
 git clone https://github.com/frappe/frappe_docker.git <your_projectname>
