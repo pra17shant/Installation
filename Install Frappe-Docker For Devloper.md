@@ -41,6 +41,13 @@ sudo apt install openssl
 sudo systemctl start docker && sudo systemctl enable docker
 ```
 ____
+## Create User and docker group ( if you needed )
+
+```
+sudo usermod -aG docker $USER
+newgrp docker
+```
+___
 * Clone Frappe Docker Public Repo on your System
 ```
 git clone https://github.com/frappe/frappe_docker.git <your_projectname>
