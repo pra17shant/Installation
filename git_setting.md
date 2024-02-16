@@ -15,7 +15,9 @@ git config user.name "FIRST_NAME LAST_NAME"
 git config user.email "MY_NAME@example.com"
 ```
 Verify your Repo wise configuration by displaying your configuration file:
+```
 cat .git/config
+```
 
 ## TO set upstream URL
 ```
