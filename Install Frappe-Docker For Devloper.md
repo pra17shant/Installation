@@ -102,16 +102,16 @@ code .
   ]
   ```
 * Once Ready apps.json file then execute following command.
-* For Help with installer.py:
-  -h, --help            show this help message and exit
-  -j APPS_JSON, --apps-json APPS_JSON Path to apps.json, default: apps-example.json
-  -b BENCH_NAME, --bench-name BENCH_NAME  Bench directory name, default: frappe-bench
-  -s SITE_NAME, --site-name SITE_NAME Site name, should end with .localhost, default: development.localhost
-  -r FRAPPE_REPO, --frappe-repo FRAPPE_REPO frappe repo to use, default: https://github.com/frappe/frappe
-  -t FRAPPE_BRANCH, --frappe-branch FRAPPE_BRANCH frappe repo to use, default: version-14
-  -p PY_VERSION, --py-version PY_VERSION python version, default: Not Set
-  -n NODE_VERSION, --node-version NODE_VERSION node version, default: Not Set
-  -v, --verbose         verbose output
+* For Help with installer.py:</br>
+  -h, --help            show this help message and exit</br>
+  -j APPS_JSON, --apps-json APPS_JSON Path to apps.json, default: apps-example.json</br>
+  -b BENCH_NAME, --bench-name BENCH_NAME  Bench directory name, default: frappe-bench</br>
+  -s SITE_NAME, --site-name SITE_NAME Site name, should end with .localhost, default: development.localhost</br>
+  -r FRAPPE_REPO, --frappe-repo FRAPPE_REPO frappe repo to use, default: https://github.com/frappe/frappe</br>
+  -t FRAPPE_BRANCH, --frappe-branch FRAPPE_BRANCH frappe repo to use, default: version-14</br>
+  -p PY_VERSION, --py-version PY_VERSION python version, default: Not Set</br>
+  -n NODE_VERSION, --node-version NODE_VERSION node version, default: Not Set</br>
+  -v, --verbose         verbose output</br></br>
 * If You change python version and node version then use (-p 3.11.4 -n v18 )
   ```
    ./installer.py -t develop -j apps.json -v
