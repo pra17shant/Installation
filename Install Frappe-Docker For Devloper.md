@@ -54,11 +54,11 @@ git clone https://github.com/frappe/frappe_docker.git <your_projectname>
 ```
 My Case
 ```
-git clone https://github.com/frappe/frappe_docker.git capgrid_docker
+git clone https://github.com/frappe/frappe_docker.git gurukrupa_docker
 ```
 * After Cloned GO Inside that folder and copy some Folder using following command
 ```
-cd capgrid_docker;
+cd gurukrupa_docker;
 cp -R devcontainer-example .devcontainer;
 cp -R development/vscode-example development/.vscode;
 ```
@@ -123,5 +123,18 @@ code .
 
 * Resolve version error
   ```
-  ./installer.py -t develop -s capgrid.local -b capgrid_bench -n v18 -j apps.json -v
+  ./installer.py -t develop -s gurukrupa.local -b gurukrupa_bench -n v18 -j apps.json -v
   ```
+* Once Install with you inside the your devlopment container
+  ```
+  bench start
+  ```
+* Note:
+  if you setup everything then make sure please register your site in hosts file
+  in linux
+  ```
+  sudo nano etc/hosts
+  ```
+  ![image](https://github.com/pra17shant/Installation/assets/99401472/ef9fda55-3b45-468a-8195-c9dbb6a70fea)
+
+  
