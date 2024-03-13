@@ -6,7 +6,7 @@ Uninstall Old version of docker or docker-engine. If you have it installed, firs
 
 ```
 sudo apt update
-sudo apt remove docker docker-engine [docker.io](http://docker.io/) 2>/dev/null
+sudo apt remove docker docker-engine docker.io 2>/dev/null
 ```
 
 ### Install packages to allow apt to use a repository over HTTPS
